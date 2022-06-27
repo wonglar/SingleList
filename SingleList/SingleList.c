@@ -130,6 +130,78 @@ ListNode* ListFind(ListNode* phead, ElementType e)
 }
 
 
+// 在pos位置之前去插入一个节点
+void ListInsert(ListNode** pphead, ListNode* pos, ElementType e)
+{
+	// 创建一个新的节点
+	ListNode* newnode = CreateNewnode(e);
+
+	assert(*pphead != NULL);
+
+	if (*pphead == pos)
+	{
+		newnode->next = *pphead;
+		*pphead = newnode;
+	}
+	else
+	{
+		// 找到pos的前一个节点
+		ListNode* posPrev = *pphead;
+
+		while (posPrev->next != pos)
+		{
+			posPrev = posPrev->next;
+		}
+
+		posPrev->next = newnode;
+		newnode->next = pos;
+
+	}
+
+}
+
+// 在pos位置之后去插入一个节点
+void ListInsertAfter(ListNode* pos, ElementType e)
+{
+	// 创建一个新的节点
+	ListNode* newnode = CreateNewnode(e);
+	newnode->next = pos->next;
+	pos->next = newnode;
+
+}
+
+
+// 删除pos位置节点
+void ListErase(ListNode** pphead, ListNode* pos)
+{
+	if (*pphead == pos)
+	{
+		*pphead = pos->next;
+		free(pos);
+		pos = NULL;
+	}
+	else
+	{
+		// 找到pos的前一个节点
+		ListNode* posPrev = *pphead;
+		while (posPrev->next != pos)
+		{
+			posPrev = posPrev->next;
+		}
+
+		posPrev->next = pos->next;
+		free(pos);
+		pos = NULL;
+	}
+}
+
+// 在pos位置之后去删除一个节点
+void ListEraseAfter(ListNode* pos)
+{
+
+}
+
+
 
 
 

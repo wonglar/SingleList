@@ -97,8 +97,27 @@ void TestSingleList05()
 }
 
 
-// 
+// 测试在pos位置之前去插入一个节点
 void TestSingleList06()
+{
+	ListNode* list = NULL;
+	/*ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);*/
+	printList(list);
+
+	ListNode* pos = ListFind(list, 1);
+
+	if (pos)
+	{
+		ListInsert(&list, pos, 10);
+		printList(list);
+	}
+}
+
+// 测试在pos位置之后去插入一个节点
+void TestSingleList07()
 {
 	ListNode* list = NULL;
 	ListPushBack(&list, 1);
@@ -107,8 +126,39 @@ void TestSingleList06()
 	ListPushBack(&list, 4);
 	printList(list);
 
+	ListNode* pos = ListFind(list, 2);
+	if (pos)
+	{
+		ListInsertAfter(pos, 20);
+		printList(list);
+	}
 }
 
+// 测试删除pos位置节点
+void TestSingleList08()
+{
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
+
+	ListNode* pos = ListFind(list, 1);
+	if (pos)
+	{
+		ListErase(&list, pos);
+		printList(list);
+	}
+
+}
+
+
+void TestSingleList09()
+{
+
+
+}
 
 int main()
 {
@@ -127,6 +177,18 @@ int main()
 	// 测试根据元素内容进行查找
 	//TestSingleList05();
 
-	TestSingleList06();
+	// 测试在pos位置之前去插入一个节点
+	//TestSingleList06();
+
+	// 测试在pos位置之后去插入一个节点
+	//TestSingleList07();
+
+	// 测试删除pos位置节点
+	//TestSingleList08();
+
+	// 测试
+	TestSingleList09();
+
+
 	return 0;
 }
