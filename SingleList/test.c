@@ -153,10 +153,22 @@ void TestSingleList08()
 
 }
 
-
+// 测试在pos位置之后删除一个节点
 void TestSingleList09()
 {
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
 
+	ListNode* pos = ListFind(list, 4);
+	if (pos)
+	{
+		ListEraseAfter(pos);
+		printList(list);
+	}
 
 }
 

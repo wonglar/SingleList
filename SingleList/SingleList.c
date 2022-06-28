@@ -198,8 +198,17 @@ void ListErase(ListNode** pphead, ListNode* pos)
 // 在pos位置之后去删除一个节点
 void ListEraseAfter(ListNode* pos)
 {
+	// pos->next不能为空！
+	assert(pos->next);
+
+	ListNode* next = pos->next;
+	pos->next = next->next;
+	free(next);
+	next = NULL;
 
 }
+
+
 
 
 
