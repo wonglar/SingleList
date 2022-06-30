@@ -208,6 +208,32 @@ void ListEraseAfter(ListNode* pos)
 
 }
 
+// 销毁链表
+void ListDestroy(ListNode** pphead)
+{
+	assert(pphead);
+
+	ListNode* cur = *pphead;
+	while (cur)
+	{
+		ListNode* next = cur->next;
+		free(cur);
+		cur = next;
+	}
+
+	*pphead = NULL;
+
+}
+
+// 在链表中的pos位置插入一个节点（pos为链表的位序）
+int ListInsertByPos(ListNode** pphead, int pos, ElementType e)
+{
+	ListNode* newnode = CreateNewnode(e);
+
+
+
+}
+
 
 
 

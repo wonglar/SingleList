@@ -172,6 +172,20 @@ void TestSingleList09()
 
 }
 
+// 测试销毁链表
+void TestSingleList10()
+{
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
+
+	ListDestroy(&list);
+
+}
+
 int main()
 {
 	//// 测试尾部插入
@@ -198,9 +212,11 @@ int main()
 	// 测试删除pos位置节点
 	//TestSingleList08();
 
-	// 测试
-	TestSingleList09();
+	// 测试在pos位置之后删除一个节点
+	//TestSingleList09();
 
+	// 测试销毁链表
+	TestSingleList10();
 
 	return 0;
 }

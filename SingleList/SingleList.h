@@ -40,7 +40,7 @@ void ListInsert(ListNode** pphead, ListNode* pos, ElementType e);
 void ListInsertAfter(ListNode* pos, ElementType e);
 
 // 在链表中的pos位置插入一个节点（pos为链表的位序）
-void ListInsertByPos(ListNode** pphead, int pos, ElementType e);
+int ListInsertByPos(ListNode** pphead, int pos, ElementType e);
 
 // 删除pos位置节点
 void ListErase(ListNode** pphead, ListNode* pos);
