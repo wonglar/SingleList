@@ -186,6 +186,50 @@ void TestSingleList10()
 
 }
 
+
+// 测试求链表的长度
+void TestSingleList11()
+{
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
+
+	int length = ListLength(list);
+	printf("%d\n", length);
+}
+
+// 测试在链表中的pos位置插入一个节点（pos为链表的逻辑位序）
+void TestSingleList12()
+{
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
+
+	ListInsertByPos(&list, 5, 55);
+	printList(list);
+	
+}
+
+// 测试在pos位置去删除一个节点(pos为逻辑位序)
+void TestSingleList13()
+{
+	ListNode* list = NULL;
+	ListPushBack(&list, 1);
+	ListPushBack(&list, 2);
+	ListPushBack(&list, 3);
+	ListPushBack(&list, 4);
+	printList(list);
+
+	ListEraseByPos(&list, 3);
+	printList(list);
+}
+
 int main()
 {
 	//// 测试尾部插入
@@ -216,7 +260,16 @@ int main()
 	//TestSingleList09();
 
 	// 测试销毁链表
-	TestSingleList10();
+	//TestSingleList10();
+
+	// 测试求链表的长度
+	//TestSingleList11();
+
+	// 测试在链表中的pos位置插入一个节点（pos为链表的逻辑位序）
+	//TestSingleList12();
+
+	// 测试在pos位置去删除一个节点(pos为逻辑位序)
+	TestSingleList13();
 
 	return 0;
 }

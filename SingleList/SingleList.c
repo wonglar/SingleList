@@ -225,12 +225,84 @@ void ListDestroy(ListNode** pphead)
 
 }
 
+
+// 求链表的长度
+int ListLength(ListNode* phead)
+{
+	ListNode* cur = phead;
+	int i = 0;
+	while (cur)
+	{
+		i++;
+		cur = cur->next;
+	}
+
+	return i;
+}
+
+
 // 在链表中的pos位置插入一个节点（pos为链表的位序）
 int ListInsertByPos(ListNode** pphead, int pos, ElementType e)
 {
+	assert(pphead && pos >= 1 && pos <= ListLength(*pphead) + 1);
+
+	// pos == 1 时，相当于头插
+	if (pos == 1)
+	{
+		ListPushFront(pphead, e);
+		return 1;
+	}
+
+	// 创建新节点
 	ListNode* newnode = CreateNewnode(e);
 
+	// 找到pos的前一个节点
+	ListNode* p = *pphead;
+	int i = 0;
+	for (i = 1; i < pos - 1; i++)
+	{
+		p = p->next;
+	}
 
+	newnode->next = p->next;
+	p->next = newnode;
+
+	return 1;
+
+}
+
+// 判断链表是否为空
+int ListEmpty(ListNode* phead)
+{
+	return phead == NULL;
+}
+
+// 在pos位置去删除一个节点(pos为逻辑位序)
+int ListEraseByPos(ListNode** pphead, int pos)
+{
+	assert(pphead && pos >= 1 && pos <= ListLength(*pphead));
+
+	// 判断链表是否为空
+	if (ListEmpty(*pphead))
+	{
+		return 0;
+	}
+
+	// 找到pos的前一个节点
+	ListNode* p = *pphead;
+	int i = 0;
+	for (i = 1; i < pos - 1; i++)
+	{
+		p = p->next;
+	}
+
+	p->next = p->next->next;
+	free(p->next);
+
+
+	/*ListNode* q = p->next;
+	p->next = q->next;
+	free(q);*/
 
 }
 
