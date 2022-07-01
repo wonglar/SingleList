@@ -226,7 +226,7 @@ void TestSingleList13()
 	ListPushBack(&list, 4);
 	printList(list);
 
-	ListEraseByPos(&list, 3);
+	ListEraseByPos(&list, 1);
 	printList(list);
 }
 

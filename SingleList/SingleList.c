@@ -288,6 +288,13 @@ int ListEraseByPos(ListNode** pphead, int pos)
 		return 0;
 	}
 
+	// 头删
+	if (pos == 1)
+	{
+		ListPopFront(pphead);
+		return 1;
+	}
+
 	// 找到pos的前一个节点
 	ListNode* p = *pphead;
 	int i = 0;
@@ -296,15 +303,14 @@ int ListEraseByPos(ListNode** pphead, int pos)
 		p = p->next;
 	}
 
-	p->next = p->next->next;
-	free(p->next);
-
-
-	/*ListNode* q = p->next;
+	ListNode* q = p->next;
 	p->next = q->next;
-	free(q);*/
+	free(q);
 
+	return 1;
 }
+
+
 
 
 

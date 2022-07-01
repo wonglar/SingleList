@@ -59,3 +59,4 @@ int ListLength(ListNode* phead);
 
 // ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ
 int ListEmpty(ListNode* phead);
+
